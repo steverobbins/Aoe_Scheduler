@@ -32,12 +32,6 @@ class Aoe_Scheduler_Model_Task_Test
         }
         sleep($duration);
 
-        /* // testing the error log feature...
-        array_keys('ssdsd');
-        error_log( "Hello, errors!" );
-        $t = I_AM_NOT_DEFINED;
-        */
-
         if ($parameters && $parameters['outcome'] == 'error') {
             return 'ERROR: This schedule has failed.';
         }
@@ -49,25 +43,5 @@ class Aoe_Scheduler_Model_Task_Test
         if ($parameters && $parameters['outcome'] == 'exception') {
             throw new Exception('This is a dummy exception');
         }
-
-
-        // Simulating ETA;
-//        $starttime = time();
-//        // $endtime = $starttime + rand(180, 360);
-//        $endtime = $starttime + $duration;
-//        $schedule
-//            ->setEta(strftime('%Y-%m-%d %H:%M:%S', $endtime))
-//            ->save();
-//        while ($endtime > time()) {
-//            sleep(5);
-//            $schedule
-//                ->setProgressMessage('Work in progress. Time spent: ' . (time() - $starttime))
-//                ->setEta(strftime('%Y-%m-%d %H:%M:%S', $endtime))
-//                ->save();
-//        }
-//
-//        $schedule
-//            ->setProgressMessage('')
-//            ->save();
     }
 }
